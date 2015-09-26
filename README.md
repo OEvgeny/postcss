@@ -114,7 +114,7 @@ Start using PostCSS in just two steps:
 2. Select plugins from the list below and add them to your PostCSS process.
 
 There are plugins for [Grunt], [Gulp], [webpack], [Broccoli],
-[Brunch], [ENB], [Fly], [Stylus] and [Connect/Express].
+[Brunch], [ENB], [Fly], [Stylus], [Duo] and [Connect/Express].
 
 ```js
 gulp.task('css', function () {
@@ -158,6 +158,7 @@ Read the [PostCSS API] for more details about the JS API.
 [Gulp]:             https://github.com/postcss/gulp-postcss
 [ENB]:              https://github.com/theprotein/enb-postcss
 [Fly]:              https://github.com/postcss/fly-postcss
+[Duo]:              https://github.com/duojs/duo
 
 ## Custom Syntaxes
 
@@ -239,11 +240,12 @@ Or enable plugins directly in CSS using [`postcss-use`]:
 * [`precss`] contains plugins that allow you to use Sass-like CSS.
 * [`rucksack`] contains plugins to speed up CSS development
   with new features and shortcuts.
+* [`short`] adds and extends numerous shorthand properties.
 * [`stylelint`] contains plugins that lint your stylesheets.
 
 [`stylelint`]: https://github.com/stylelint/stylelint
 [`rucksack`]:  http://simplaio.github.io/rucksack
-[`cssnano`]:   https://github.com/ben-eb/cssnano
+[`cssnano`]:   http://cssnano.co/
 [`cssnext`]:   http://cssnext.io/
 [`precss`]:    https://github.com/jonathantneal/precss
 [`atcss`]:     https://github.com/morishitter/atcss
@@ -295,6 +297,7 @@ See also [`cssnext`] plugins pack to add future CSS syntax by one line of code.
 
 ### Language Extensions
 
+* [`postcss-atroot`] place rules directly at the root node.
 * [`postcss-bem`] adds at-rules for BEM and SUIT style classes.
 * [`postcss-conditionals`] adds `@if` statements.
 * [`postcss-css-variables`] supports variables for selectors, and at-rules
@@ -348,6 +351,7 @@ See also [`precss`] plugins pack to add them by one line of code.
   colorblindness.
 * [`postcss-hexrgba`] adds shorthand hex `rgba(hex, alpha)` method.
 * [`postcss-rgb-plz`] converts 3 or 6 digit hex values to `rgb`.
+* [`colorguard`] helps maintain a consistent color palette.
 
 ### Images and Fonts
 
@@ -360,9 +364,11 @@ See also [`precss`] plugins pack to add them by one line of code.
 * [`postcss-image-set`] adds `background-image` with first image
   for `image-set()`.
 * [`postcss-image-inliner`] inlines local and remote images.
+* [`postcss-instagram`] adds Instagram filters to `filter`.
 * [`postcss-font-pack`] simplifies font declarations and validates they match
   configured font packs.
 * [`postcss-fontpath`] adds font links for different browsers.
+* [`postcss-responsive-images`] adds stylesheets for making your images responsive
 * [`postcss-sprites`] generates CSS sprites from stylesheets.
 * [`postcss-svg`] insert inline SVG to CSS and allows to manage it colors.
 * [`postcss-svg-fallback`] converts SVG in your CSS to PNG files for IE 8.
@@ -421,7 +427,6 @@ See also plugins in modular minifier [`cssnano`].
 * [`postcss-property-lookup`] allows referencing property values without
   a variable.
 * [`postcss-responsive-type`] changes `font-size` depends on screen size.
-* [`postcss-short`] adds and extends numerous shorthand properties.
 * [`postcss-size`] adds a `size` shortcut that sets width and height
   with one declaration.
 * [`postcss-transform-shortcut`] allows shorthand transform properties in CSS.
@@ -480,6 +485,7 @@ See also plugins in modular minifier [`cssnano`].
 * [`postcss-german-stylesheets`] German Style Sheets.
 * [`postcss-russian-stylesheets`] Russian Style Sheets.
 * [`postcss-swedish-stylesheets`] Swedish Style Sheets.
+* [`postcss-tatar-stylesheets`] Tatar Style Sheets
 * [`postcss-lolcat-stylesheets`] Lolspeak Style Sheets.
 * [`postcss-imperial`] adds CSS support for Imperial and US customary units of length.
 * [`postcss-russian-units`] adds CSS support for russian units of length.
@@ -502,6 +508,8 @@ See also plugins in modular minifier [`cssnano`].
 [`postcss-minify-font-weight`]:      https://github.com/ben-eb/postcss-minify-font-weight
 [`postcss-pseudo-class-enter`]:      https://github.com/jonathantneal/postcss-pseudo-class-enter
 [`postcss-transform-shortcut`]:      https://github.com/jonathantneal/postcss-transform-shortcut
+[`postcss-responsive-images`]:       https://github.com/azat-io/postcss-responsive-images
+[`postcss-tatar-stylesheets`]:       https://github.com/azat-io/postcss-tatar-stylesheets
 [`postcss-custom-properties`]:       https://github.com/postcss/postcss-custom-properties
 [`postcss-discard-font-face`]:       https://github.com/ben-eb/postcss-discard-font-face
 [`postcss-custom-selectors`]:        https://github.com/postcss/postcss-custom-selectors
@@ -582,6 +590,7 @@ See also plugins in modular minifier [`cssnano`].
 [`postcss-color-mix`]:               https://github.com/iamstarkov/postcss-color-mix
 [`postcss-image-set`]:               https://github.com/alex499/postcss-image-set
 [`postcss-write-svg`]:               https://github.com/jonathantneal/postcss-write-svg
+[`postcss-instagram`]:               https://github.com/azat-io/postcss-instagram
 [`postcss-clearfix`]:                https://github.com/seaneking/postcss-clearfix
 [`postcss-colormin`]:                https://github.com/ben-eb/colormin
 [`postcss-cssstats`]:                https://github.com/cssstats/postcss-cssstats
@@ -617,12 +626,12 @@ See also plugins in modular minifier [`cssnano`].
 [`postcss-zindex`]:                  https://github.com/ben-eb/postcss-zindex
 [`list-selectors`]:                  https://github.com/davidtheclark/list-selectors
 [`mq4-hover-shim`]:                  https://github.com/twbs/mq4-hover-shim
+[`postcss-atroot`]:                  https://github.com/OEvgeny/postcss-atroot
 [`postcss-focus`]:                   https://github.com/postcss/postcss-focus
 [`postcss-apply`]:                   https://github.com/pascalduez/postcss-apply
 [`css2modernizr`]:                   https://github.com/vovanbo/css2modernizr
 [`font-magician`]:                   https://github.com/jonathantneal/postcss-font-magician
 [`postcss-match`]:                   https://github.com/rtsao/postcss-match
-[`postcss-short`]:                   https://github.com/jonathantneal/postcss-short
 [`postcss-alias`]:                   https://github.com/seaneking/postcss-alias
 [`perfectionist`]:                   https://github.com/ben-eb/perfectionist
 [`immutable-css`]:                   https://github.com/johnotander/immutable-css
@@ -645,6 +654,7 @@ See also plugins in modular minifier [`cssnano`].
 [`postcss-map`]:                     https://github.com/pascalduez/postcss-map
 [`postcss-svg`]:                     https://github.com/Pavliko/postcss-svg
 [`postcss-url`]:                     https://github.com/postcss/postcss-url
+[`colorguard`]:                      https://github.com/SlexAxton/css-colorguard
 [`stylehacks`]:                      https://github.com/ben-eb/stylehacks
 [`css-byebye`]:                      https://github.com/AoDev/css-byebye
 [`cssgrace`]:                        https://github.com/cssdream/cssgrace
@@ -654,6 +664,7 @@ See also plugins in modular minifier [`cssnano`].
 [`doiuse`]:                          https://github.com/anandthakker/doiuse
 [`pixrem`]:                          https://github.com/robwierzbowski/node-pixrem
 [`rtlcss`]:                          https://github.com/MohammadYounes/rtlcss
+[`short`]:                           https://github.com/jonathantneal/postcss-short
 [`lost`]:                            https://github.com/corysimmons/lost
 
 ## How to Develop for PostCSS
